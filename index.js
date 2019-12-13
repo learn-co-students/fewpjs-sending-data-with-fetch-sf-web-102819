@@ -25,19 +25,22 @@ function submitData(name, email) {
       "Content-Type": "application/json",
       "Accept": "application/json"
     },
+    // send data
     body: JSON.stringify({
       name,
       email
     })
   })
-
+  // handle the response
   .then(function(response) {
     return response.json()
   })
   .then(function(object) {
     document.body.innerHTML = object["id"]
   })
+  // handle errors
   .catch(function(error) {
     document.body.innerHTML = error.message
   })
+  // return the fetch from line 21
 )}
